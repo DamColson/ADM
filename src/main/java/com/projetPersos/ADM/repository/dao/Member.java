@@ -8,12 +8,13 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity(name="Adm_members")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Members {
+public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,5 +37,11 @@ public class Members {
     @ManyToOne
     @JoinColumn(name = "rank_id")
     private Rank rank;
+
+    @OneToMany(mappedBy = "member",cascade = {CascadeType.REMOVE})
+    private List<Post> posts;
+
+    @OneToMany(mappedBy = "member",cascade = {CascadeType.REMOVE})
+    private List<Post> messages;
 
 }

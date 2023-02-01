@@ -1,29 +1,32 @@
 package com.projetPersos.ADM.repository.dao;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
+import java.util.Date;
 
-@Entity(name="Adm_rank")
+@Entity(name="adm_messages")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rank {
+public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="rank_id")
+    @Column(name="message_id")
     private long id;
 
     @NotBlank
-    private String name;
+    private Date date;
 
-    @OneToMany(mappedBy = "rank",cascade = {CascadeType.REMOVE})
-    private List<Member> members;
+    @NotBlank
+    @Column(name="message_content")
+    private String content;
 
+    @ManyToOne
+    @JoinColumn(name="member_id")
+    private Member member;
 }
