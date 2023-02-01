@@ -11,11 +11,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-@Entity
+@Entity(name="AdmMembers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdmMembers {
+public class Members {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,11 +34,11 @@ public class AdmMembers {
     @Size(min = 8,message = "Votre mot de passe doit contenir au moins 8 caractère")
     private String password;
 
-    /*
+
     @ManyToOne
     @JoinColumn(name = "rank_id")
     private Rank rank;
-    */
+
 
 
 
