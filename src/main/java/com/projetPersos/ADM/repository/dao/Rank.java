@@ -1,4 +1,4 @@
-package repository.dao;
+package com.projetPersos.ADM.repository.dao;
 
 
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-@Entity(name="AdmRank")
+@Entity(name="Adm_rank")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
