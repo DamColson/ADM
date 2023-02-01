@@ -39,7 +39,4 @@ public class Members {
     @JoinColumn(name = "rank_id")
     private Rank rank;
 
-
-
-
 }
