@@ -33,7 +33,6 @@ public class Member {
     @Size(min = 8,message = "Votre mot de passe doit contenir au moins 8 caractère")
     private String password;
 
-
     @ManyToOne
     @JoinColumn(name = "rank_id")
     private Rank rank;
