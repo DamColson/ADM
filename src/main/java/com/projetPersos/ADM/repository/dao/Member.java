@@ -44,4 +44,10 @@ public class Member {
     @OneToMany(mappedBy = "member",cascade = {CascadeType.REMOVE})
     private List<Post> messages;
 
+    @OneToMany(mappedBy = "member",cascade = {CascadeType.REMOVE})
+    private List<Table> tables;
+
+    @OneToMany(mappedBy = "pk.member",cascade = {CascadeType.REMOVE})
+    private List<MembersToTables> membersToTables;
+
 }
