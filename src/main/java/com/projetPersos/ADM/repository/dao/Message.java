@@ -20,11 +20,11 @@ public class Message {
     private long id;
 
     @NotBlank
-    private Date date;
-
-    @NotBlank
     @Column(name="message_content")
     private String content;
+
+    @NotBlank
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name="member_id")

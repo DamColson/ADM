@@ -13,9 +13,9 @@ public class TableDTO {
 
     private long id;
 
-    private Date date;
-
     private String name;
+
+    private Date date;
 
     private MemberDTO memberDTO;
 

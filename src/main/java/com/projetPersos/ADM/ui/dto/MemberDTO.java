@@ -12,7 +12,5 @@ public class MemberDTO {
 
     private String pseudo;
 
-    private String mail;
-
     private RankDTO rankDTO;
 }
