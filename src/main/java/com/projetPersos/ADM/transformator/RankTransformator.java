@@ -1,4 +1,4 @@
-package com.projetPersos.ADM.services.transformator;
+package com.projetPersos.ADM.transformator;
 
 import com.projetPersos.ADM.repository.dao.Rank;
 import com.projetPersos.ADM.ui.dto.RankDTO;

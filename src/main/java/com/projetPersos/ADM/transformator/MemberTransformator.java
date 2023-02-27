@@ -1,4 +1,4 @@
-package com.projetPersos.ADM.services.transformator;
+package com.projetPersos.ADM.transformator;
 import com.projetPersos.ADM.repository.dao.Member;
 import com.projetPersos.ADM.ui.dto.MemberDTO;
 import org.springframework.beans.factory.annotation.Autowired;

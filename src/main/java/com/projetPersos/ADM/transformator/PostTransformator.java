@@ -1,9 +1,8 @@
-package com.projetPersos.ADM.services.transformator;
+package com.projetPersos.ADM.transformator;
 
 import com.projetPersos.ADM.repository.dao.Post;
 import com.projetPersos.ADM.ui.dto.PostDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
