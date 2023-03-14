@@ -17,4 +17,11 @@ public interface IMessageService {
     MessageDTO update(long messageId, UpdateMessageDTO updateMessageDTO) throws Adm404Exception;
     void delete(long messageId) throws Adm404Exception;
 
+    /* A voir pour ajouter :
+    *
+    * findAllByMember => recherche tout les message d'un utilisateur
+    * findByContent => recherche les messages contenant le contenu recherché.
+    *
+    * */
+
 }
