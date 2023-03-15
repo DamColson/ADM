@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateMemberDTO {
 
-    private long id;
+
     private String pseudo;
     private String mail;
     private String password;

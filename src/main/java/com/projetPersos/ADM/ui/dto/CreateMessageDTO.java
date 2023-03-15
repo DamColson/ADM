@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class UpdateMessageDTO {
-    private long id;
+@NoArgsConstructor
+@Data
+public class CreateMessageDTO {
+
     private String content;
     private Date date;
-    private Member member;
+    private long memberId;
 }

@@ -2,19 +2,17 @@ package com.projetPersos.ADM.services.itf;
 
 import com.projetPersos.ADM.exceptions.Adm400Exception;
 import com.projetPersos.ADM.exceptions.Adm404Exception;
-import com.projetPersos.ADM.repository.dao.Member;
+import com.projetPersos.ADM.ui.dto.CreateMessageDTO;
 import com.projetPersos.ADM.ui.dto.MessageDTO;
-import com.projetPersos.ADM.ui.dto.UpdateMessageDTO;
 
-import java.util.Date;
 import java.util.List;
 
 public interface IMessageService {
 
     List<MessageDTO> findAll();
     MessageDTO findById(long messageId) throws Adm404Exception;
-    MessageDTO create(String content, Date date, long memberId) throws Adm404Exception, Adm400Exception;
-    MessageDTO update(long messageId, UpdateMessageDTO updateMessageDTO) throws Adm404Exception;
+    MessageDTO create(CreateMessageDTO createMessageDTO) throws Adm404Exception, Adm400Exception;
+    MessageDTO update(long messageId, CreateMessageDTO createMessageDTO) throws Adm404Exception;
     void delete(long messageId) throws Adm404Exception;
     List<MessageDTO> findByMember(long memberId) throws Adm404Exception;
     List<MessageDTO> findByContent(String content);
