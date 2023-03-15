@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class MessageService implements IMessageService {
@@ -86,17 +87,28 @@ public class MessageService implements IMessageService {
     @Override
     public List<MessageDTO> findByContent(String content) {
         List<Message> messageList = messageRepository.findAll();
-        List<Message> messageToReturn = new ArrayList<>();
-        for(Message message : messageList){
-            if(message.getContent().contains(content)){
-                messageToReturn.add(message);
-            }
-        }
+        List<Message> messageToReturn = messageList.stream()
+                .filter(message -> message.getContent().contains(content))
+                .collect(Collectors.toList());
+
+        /*
+
+        Stream alternatif, probablement moins performant
+
+        messageList.stream()
+                .forEach(message -> {
+                    if (message.getContent().contains(content)) {
+                        messageToReturn.add(message);
+                    }
+                }
+                );
+         */
+
         return messageTransformator.modelsToDtos(messageToReturn);
 
         /*
         *
-        * Progrès à apporter, stream en lieu de la boucle for pour gagner en performance
+        * Stream à tester ! Devrait marcher !
         *
         * */
     }
