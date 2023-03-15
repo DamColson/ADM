@@ -15,6 +15,7 @@ import com.projetPersos.ADM.ui.dto.UpdateMessageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -74,5 +75,29 @@ public class MessageService implements IMessageService {
     public void delete(long messageId) throws Adm404Exception {
         Message message = messageRepository.findById(messageId).orElseThrow(()-> new Adm404Exception("Message inexistant"));
         messageRepository.delete(message);
+    }
+
+    @Override
+    public List<MessageDTO> findByMember(long memberId) throws Adm404Exception {
+        Member member = memberRepository.findById(memberId).orElseThrow(()-> new Adm404Exception("Membre inexistant"));
+        return messageTransformator.modelsToDtos(messageRepository.findByMember(member));
+    }
+
+    @Override
+    public List<MessageDTO> findByContent(String content) {
+        List<Message> messageList = messageRepository.findAll();
+        List<Message> messageToReturn = new ArrayList<>();
+        for(Message message : messageList){
+            if(message.getContent().contains(content)){
+                messageToReturn.add(message);
+            }
+        }
+        return messageTransformator.modelsToDtos(messageToReturn);
+
+        /*
+        *
+        * Progrès à apporter, stream en lieu de la boucle for pour gagner en performance
+        *
+        * */
     }
 }

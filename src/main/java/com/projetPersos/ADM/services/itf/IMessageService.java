@@ -16,12 +16,7 @@ public interface IMessageService {
     MessageDTO create(String content, Date date, long memberId) throws Adm404Exception, Adm400Exception;
     MessageDTO update(long messageId, UpdateMessageDTO updateMessageDTO) throws Adm404Exception;
     void delete(long messageId) throws Adm404Exception;
-
-    /* A voir pour ajouter :
-    *
-    * findAllByMember => recherche tout les message d'un utilisateur
-    * findByContent => recherche les messages contenant le contenu recherché.
-    *
-    * */
+    List<MessageDTO> findByMember(long memberId) throws Adm404Exception;
+    List<MessageDTO> findByContent(String content);
 
 }
