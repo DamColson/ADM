@@ -29,7 +29,7 @@ public class PostTransformator {
         if(postDTO==null){
             return null;
         }
-        return new Post(postDTO.getId(), postDTO.getContent(), postDTO.getDate(),memberTransformator.dtoToModel(postDTO.getMemberDTO()));
+        return new Post(postDTO.getId(), postDTO.getContent(), postDTO.getDate(),memberTransformator.dtoToModel(postDTO.getMemberDTO()),null);
     }
 
     public List<Post> dtosToModels(List<PostDTO> postDTOS){
