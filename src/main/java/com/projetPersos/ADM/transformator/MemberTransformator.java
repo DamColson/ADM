@@ -26,7 +26,7 @@ public class MemberTransformator {
         if(memberDTO==null){
             return null;
         }
-        return new Member(memberDTO.getId(), memberDTO.getPseudo(), null, null, rankTransformator.dtoToModel(memberDTO.getRankDTO()), null,null,null,null);
+        return new Member(memberDTO.getId(), memberDTO.getPseudo(), null, null, rankTransformator.dtoToModel(memberDTO.getRankDTO()), null,null,null,null,null,null);
     }
 
     public List<Member> dtosToModels(final List<MemberDTO> memberDTOS){

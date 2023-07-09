@@ -22,6 +22,7 @@ public class Member {
     private long id;
 
     @NotBlank
+    @Column(unique = true)
     private String pseudo;
 
     @NotBlank
@@ -40,13 +41,19 @@ public class Member {
     @OneToMany(mappedBy = "member",cascade = {CascadeType.REMOVE})
     private List<Post> posts;
 
-    @OneToMany(mappedBy = "member",cascade = {CascadeType.REMOVE})
-    private List<Post> messages;
+    @OneToMany(mappedBy = "sendingMember",cascade = {CascadeType.REMOVE})
+    private List<Message> sentMessages;
+
+    @OneToMany(mappedBy = "receivingMember",cascade = {CascadeType.REMOVE})
+    private List<Message> receivedMessages;
 
     @OneToMany(mappedBy = "member",cascade = {CascadeType.REMOVE})
     private List<Table> tables;
 
     @OneToMany(mappedBy = "pk.member",cascade = {CascadeType.REMOVE})
     private List<MembersToTables> membersToTables;
+
+    @OneToMany(mappedBy = "member", cascade = {CascadeType.REMOVE})
+    private List<Article> articles;
 
 }

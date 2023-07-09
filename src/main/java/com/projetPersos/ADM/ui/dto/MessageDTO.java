@@ -17,6 +17,8 @@ public class MessageDTO {
 
     private Date date;
 
-    private MemberDTO memberDTO;
+    private MemberDTO sendingMemberDTO;
+
+    private MemberDTO receivingMemberDTO;
 
 }

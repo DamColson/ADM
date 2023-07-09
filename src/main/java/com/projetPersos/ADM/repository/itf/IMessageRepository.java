@@ -10,6 +10,8 @@ import java.util.List;
 
 @Repository
 public interface IMessageRepository extends JpaRepository<Message,Long> {
-    List<Message> findByMember(Member member) throws Adm404Exception;
+    List<Message> findBySendingMemberAndReceivingMember(Member sendingMember,Member receivingMember) throws Adm404Exception;
+    List<Message> findBySendingMember(Member sendingMember);
+    List<Message> findByReceivingMember(Member receivingMember);
     List<Message> findByContent(String content);
 }

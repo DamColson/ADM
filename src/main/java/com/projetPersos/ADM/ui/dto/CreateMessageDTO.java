@@ -14,5 +14,6 @@ public class CreateMessageDTO {
 
     private String content;
     private Date date;
-    private long memberId;
+    private long sendingMemberId;
+    private long receivingMemberId;
 }

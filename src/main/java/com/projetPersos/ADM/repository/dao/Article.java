@@ -9,30 +9,28 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
-@Entity(name="adm_messages")
+@Entity(name = "Adm_articles")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Message {
+@AllArgsConstructor
+public class Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="message_id")
+    @Column(name = "article_id")
     private long id;
 
-    @NotBlank
-    @Column(name="message_content")
-    private String content;
+    private String title;
 
     @NotBlank
+    private String content;
+
     @DateTimeFormat
     private Date date;
 
-    @ManyToOne
-    @JoinColumn(name="member_id")
-    private Member sendingMember;
+    private String imagePath;
 
     @ManyToOne
-    @JoinColumn(name="member_id")
-    private Member receivingMember;
+    @JoinColumn(name = "member_id")
+    private Member member;
 }

@@ -18,7 +18,7 @@ public class MessageTransformator {
         if(message==null){
             return null;
         }
-        return new MessageDTO(message.getId(), message.getContent(), message.getDate(), memberTransformator.modelToDto(message.getMember()));
+        return new MessageDTO(message.getId(), message.getContent(), message.getDate(), memberTransformator.modelToDto(message.getSendingMember()), memberTransformator.modelToDto(message.getReceivingMember()));
     }
     public List<MessageDTO> modelsToDtos(List<Message> messages){
         return messages.stream().map(this::modelToDto).collect(Collectors.toList()) ;
@@ -27,7 +27,7 @@ public class MessageTransformator {
         if(messageDTO==null){
             return null;
         }
-        return new Message(messageDTO.getId(), messageDTO.getContent(),messageDTO.getDate(),memberTransformator.dtoToModel(messageDTO.getMemberDTO()));
+        return new Message(messageDTO.getId(), messageDTO.getContent(),messageDTO.getDate(),memberTransformator.dtoToModel(messageDTO.getSendingMemberDTO()),memberTransformator.dtoToModel(messageDTO.getReceivingMemberDTO()));
     }
     public List<Message> dtosToModels(List<MessageDTO> messageDTOList){
         return messageDTOList.stream().map(this::dtoToModel).collect(Collectors.toList());
