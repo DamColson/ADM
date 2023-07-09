@@ -29,10 +29,10 @@ public class Message {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name="member_id")
+    @JoinColumn(name="sendingMember_id")
     private Member sendingMember;
 
     @ManyToOne
-    @JoinColumn(name="member_id")
+    @JoinColumn(name="receivingMember_id")
     private Member receivingMember;
 }
