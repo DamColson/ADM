@@ -50,7 +50,7 @@ public class MessageService implements IMessageService {
     }
 
     @Override
-    public MessageDTO create(CreateMessageDTO createMessageDTO) throws Adm404Exception, Adm400Exception {
+    public MessageDTO create(CreateMessageDTO createMessageDTO) throws Adm404Exception {
         Member sendingMember = memberRepository.findById(createMessageDTO.getSendingMemberId()).orElseThrow(()-> new Adm404Exception("Membre inexistant"));
         Member receivingMember = memberRepository.findById(createMessageDTO.getReceivingMemberId()).orElseThrow(()-> new Adm404Exception("Membre inexistant"));
 
@@ -61,6 +61,9 @@ public class MessageService implements IMessageService {
         message.setReceivingMember(receivingMember);
         return messageTransformator.modelToDto(messageRepository.save(message));
     }
+
+    /*
+    Probablement pas nécessaire
 
     @Override
     public MessageDTO update(long messageId, CreateMessageDTO createMessageDTO) throws Adm404Exception {
@@ -75,7 +78,7 @@ public class MessageService implements IMessageService {
 
         return messageTransformator.modelToDto(messageRepository.save(message));
     }
-
+    */
     @Override
     public void delete(long messageId) throws Adm404Exception {
         Message message = messageRepository.findById(messageId).orElseThrow(()-> new Adm404Exception("Message inexistant"));

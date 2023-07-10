@@ -12,8 +12,11 @@ public interface IMessageService {
 
     List<MessageDTO> findAll();
     MessageDTO findById(long messageId) throws Adm404Exception;
-    MessageDTO create(CreateMessageDTO createMessageDTO) throws Adm404Exception, Adm400Exception;
+    MessageDTO create(CreateMessageDTO createMessageDTO) throws Adm404Exception;
+    /*
+    Probablement pas nécessaire
     MessageDTO update(long messageId, CreateMessageDTO createMessageDTO) throws Adm404Exception;
+     */
     void delete(long messageId) throws Adm404Exception;
     List<MessageDTO> findBySendingMemberAndReceivingMember(String senderPseudo, long memberId) throws Adm404Exception;
     List<MessageDTO> findBySendingMember(Member sendingMember);
